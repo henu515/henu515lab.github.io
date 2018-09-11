@@ -320,11 +320,18 @@
         <br />
 
         <center>
-          <iframe id="labWindow" src="/panorama.html" frameborder="0" allowfullscreen="true"></iframe>
+          <iframe id="labWindow" src="#" frameborder="0" allowfullscreen="true"></iframe>
         </center>
       </article>
     </section>
   </article>
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var oFrame = document.getElementById('labWindow');
+      oFrame.src = '/panorama.html';
+    };
+  </script>
 </body>
 
 </html>
