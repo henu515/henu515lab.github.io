@@ -1,0 +1,48 @@
+@keyframes cursor {
+  0%, 50% {
+    opacity: 1;
+  }
+
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+#terminal,
+.terminal{
+	padding: 2em 0;
+	background-color: #300a24;
+
+	color: white;
+	font-family: "Ubuntu Mono", mono;
+	font-size: rem-calc(14px);
+	line-height: 125%;
+	text-align: left;
+
+	.output{
+		min-height: rem-calc(320px);
+		max-height: rem-calc(320px);
+
+		overflow: hidden;
+
+		.line{
+			display: block;
+			max-width: rem-calc(1160px);
+			margin: 0 auto;
+			padding-left: 2rem;
+
+			&:last-child::after{
+				content: "▮";
+
+				animation-name: cursor;
+				animation-iteration-count: infinite;
+				animation-duration: 1s;
+				animation-fill-mode: both;
+			}
+		}
+	}
+
+	[data-terminal]{
+		display: none;
+	}
+}

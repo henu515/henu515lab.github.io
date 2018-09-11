@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <!-- 启用webAPP全屏模式-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 隐藏状态栏或者设置状态栏的颜色-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- 禁止缓存访问页面-->
+    <!-- <meta http-equiv="Pragma" content="no-cache"> -->
+    <!-- 页面关键词-->
+    <meta name="applicable-device" content="mobile">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            border: 0;
+            outline: 0;
+        }
+
+        .main {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            z-index: 1;
+            cursor: move;
+        }
+
+        .main h3 {
+            position: absolute;
+            top: 10px;
+            left: calc(50% - 75px);
+            width: 150px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            opacity: 0;
+            z-index: 10;
+
+            animation: myopacity 5s ease-in 1;
+            -webkit-animation: myopacity 5s ease-in 1;
+            /*Safari and Chrome*/
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 56px;
+            height: 56px;
+            margin-left: -28px;
+            margin-top: -28px;
+            transition: opacity 1s ease-out 0s;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 100%;
+            opacity: 0;
+            z-index: 100;
+            user-select: none;
+
+            animation: myopacity 5s ease-in 1;
+            -webkit-animation: myopacity 5s ease-in 1;
+            /*Safari and Chrome*/
+        }
+
+        .logo-gif {
+            width: 48px;
+            height: 48px;
+            margin-left: 4px;
+            margin-top: 4px;
+        }
+
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes myopacity {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        /*Safari and Chrome*/
+        @-webkit-keyframes myopacity {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    </style>
+    <script src="https://liuyibo.top/js/three.min.js" defer="defer"></script>
+    <script src="https://liuyibo.top/js/photo-sphere-viewer.min.js" defer="defer"></script>
+</head>
+
+<body>
+    <div class="main">
+        <h3 id="title">鼠标拖拽查看全景</h3>
+        <div class="logo">
+            <img class="logo-gif" src="http://peqh153pr.bkt.clouddn.com/qunjinglogo.gif" />
+        </div>
+        <div id="container"></div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            loadingAllImg();
+        }
+
+        /*全景图参数配置函数*/
+        function loadingAllImg() {
+            var oDiv = document.getElementById('container');
+            var PSV = new PhotoSphereViewer({
+                /* 全景图的完整路径*/
+                panorama: 'https://liuyibo.top/img/panorama.jpg',
+                /* 放全景图的元素*/
+                container: oDiv,
+                /* 可选，默认值为2000，全景图在time_anim毫秒后会自动进行动画。（设置为false禁用它）*/
+                time_anim: 0,
+                /* 可选值，默认为false。显示导航条。*/
+                navbar: true,
+                /* 可选，默认值null，全景图容器的最终尺寸。例如：{width: 500, height: 300}。*/
+                size: {
+                    width: '100%',
+                    height: '100%'
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

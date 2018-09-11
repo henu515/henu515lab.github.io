@@ -1,0 +1,55 @@
+@keyframes cursor {
+	0%, 50% {
+		opacity: 1;
+	}
+
+	51%, 100% {
+		opacity: 0;
+	}
+}
+body {
+	background: url(http://peqh153pr.bkt.clouddn.com/ubuntu.jpg) no-repeat;
+	background-size: 100% 100vh;
+}
+
+#terminal,
+.terminal{
+	background-color: #300a24;
+
+	color: white;
+	font-family: "Ubuntu Mono", mono;
+	font-size: 14px;
+	line-height: 125%;
+	text-align: left;
+}
+
+#terminal .output,
+.terminal .output{
+	min-height: 320px;
+	max-height: 320px;
+
+	overflow: hidden;
+}
+
+#terminal .output .line,
+.terminal .output .line{
+	display: block;
+	max-width: 1160px;
+	margin: 0 auto;
+}
+
+#terminal .output .line:last-child::after,
+.terminal .output .line:last-child::after{
+	content: "▮";
+
+	animation-name: cursor;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+
+#terminal [data-terminal],
+.terminal [data-terminal]{
+	display: none;
+}
